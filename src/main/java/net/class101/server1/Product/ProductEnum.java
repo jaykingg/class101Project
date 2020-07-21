@@ -1,8 +1,6 @@
 package net.class101.server1.Product;
 
-import lombok.Getter;
 
-@Getter
 public enum ProductEnum {
     categoryClass("categoryClass","클래스"),
     categoryKit("categoryKit","키트");

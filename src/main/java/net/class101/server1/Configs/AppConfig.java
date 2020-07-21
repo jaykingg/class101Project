@@ -49,9 +49,9 @@ public class AppConfig {
                 productRepository.save(initProduct2);
 
                 Product initProduct3 = Product.builder()
-                        .id(174500)
+                        .id(65625)
                         .category(Set.of(ProductEnum.categoryClass))
-                        .productName("일상에 따뜻한 숨결을 불어넣어요, 반지수와 함께하는 아이패\n" +
+                        .productName("일상에 따뜻한 숨결을 불어넣어요, 반지수와 함께하는 아이패" +
                                 "드 드로잉")
                         .price(174500)
                         .stock(99999)
@@ -83,7 +83,7 @@ public class AppConfig {
                         .price(299500)
                         .stock(99999)
                         .build();
-                productRepository.save(initProduct1);
+                productRepository.save(initProduct6);
 
                 Product initProduct7 = Product.builder()
                         .id(2344)
@@ -113,6 +113,7 @@ public class AppConfig {
                 productRepository.save(initProduct9);
 
                 Product initProduct10 = Product.builder()
+                        .id(54311)
                         .category(Set.of(ProductEnum.categoryClass))
                         .productName("여행 드로잉, 꿈만 꾸지 마세요. 핀든아트와 여행, 그리다")
                         .price(249500)
@@ -132,7 +133,7 @@ public class AppConfig {
                 Product initProduct12 = Product.builder()
                         .id(97166)
                         .category(Set.of(ProductEnum.categoryKit))
-                        .productName("이렇게 멋진 수채화 키트,어때요? 클래스101과 고넹이화방이\n" +
+                        .productName("이렇게 멋진 수채화 키트,어때요? 클래스101과 고넹이화방이" +
                                 "기획한 3가지 수채화 키트")
                         .price(96900)
                         .stock(5)
@@ -205,7 +206,7 @@ public class AppConfig {
                 Product initProduct20 = Product.builder()
                         .id(28448)
                         .category(Set.of(ProductEnum.categoryClass))
-                        .productName("당신도 할 수 있다! 베테랑 실무자가 알려주는 모션그래픽의\n" +
+                        .productName("당신도 할 수 있다! 베테랑 실무자가 알려주는 모션그래픽의" +
                                 "모든 것")
                         .price(152200)
                         .stock(99999)

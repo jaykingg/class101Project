@@ -1,4 +1,4 @@
-# Flow Coding Test
+# Class101 Coding Test
 - - - - - - 
 ##### 지원자 : 백엔드 개발자 모준서
 - - - - - - 
@@ -6,11 +6,17 @@
 * Java 11
 * Spring Boot 2.1.7RELEASE
 * Spring JPA
-* Spring HATEOAS
 * H2 
 * Lombok
 * Maven
 
+### TODO
+TEST   
+SOLD out exeception
+multithread 환경 
+
+
+------------------------------
 ### Table schema
 |변수|타입|설명|
 |----|----|----|

@@ -1,8 +1,8 @@
 package net.class101.server1.Product;
 
-import java.util.List;
+import org.springframework.http.ResponseEntity;
 
 public interface ProductService {
-    List<Product> productList();
-    ProductDto orderProduct(List<Product> orderList);
+    ResponseEntity productList();
+    ResponseEntity orderProduct(ProductOrderDto productOrderDto);
 }
