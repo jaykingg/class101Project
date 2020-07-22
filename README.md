@@ -13,10 +13,10 @@
 ### HomeWork 분석 및 가정
 * Console에서 시나리오가 작동된다.
 > Console을 각 Front(Client)로 가정한다.   
-> 이에 따라 Console에서는 Restemplte로 서버와 통신하는 방식으로 진행한다. 
+> 이에 따라 Console 에서는 Restemplate 로 서버와 통신하는 방식으로 진행한다. 
 > Console 출력이므로, HATEOAS와 Self-Descriptive-Msg는 생략한다.     
 * 사용자들의 동시 접근에 대해 처리하기 위해 MultiThread 방식으로 처리한다.   
-> Spring Boot Web Application은 Dispatcher에 의해 각 요청들을 MultiThread로 처리한다.   
+> 기본적으로 Spring Boot Web Application은 Dispatcher에 의해 각 요청들을 MultiThread로 처리한다.   
 > 더불어 Datebase 격리수준을 Read-Commit으로 설정하여 Transaction 수행 중, 다른 Transaction이 끼어들지 못하게 한다.
 * 주문 도중 상품이 품절됐을경우 Custom Exception을 발생시킨다.
 > RuntimeException을 상속하여 Custom Exception을 생성한다.   
