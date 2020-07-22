@@ -1,5 +1,7 @@
 package net.class101.server1.Configs;
 
+import net.class101.server1.Common.AppError;
+import net.class101.server1.Common.SoldOutException;
 import net.class101.server1.Product.Product;
 import net.class101.server1.Product.ProductEnum;
 import net.class101.server1.Product.ProductRepository;
@@ -9,6 +11,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Set;
 
@@ -22,6 +26,7 @@ public class AppConfig {
     public ModelMapper modelMapper() {
         return new ModelMapper();
     }
+
 
     /** TEST를 위한 init product 생성 **/
     @Bean

@@ -1,5 +1,6 @@
 package net.class101.server1.Product;
 
+import net.class101.server1.Common.SoldOutException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class ProductServiceImpl implements ProductService{
 
     /** DB 고립 상태로 해당 트랜잭션 수행 중, 다른 트랜잭션이 끼어들지 못하게 함. **/
     /** 장바구니에 담고있는 중 누가 이미 사서 재고가 떨어졌다면, SoldOutException **/
-    @Transactional(isolation = Isolation.DEFAULT)
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     @Override
     public ResponseEntity orderProduct(ProductOrderDto productOrderDto) {
         /** Console 출력이므로 HATEOAS,Self-Descriptive-Msg 처리 안함. **/
@@ -39,7 +40,7 @@ public class ProductServiceImpl implements ProductService{
 
             /** 장바구니에서 결제를 진행할 때, 다시 한번 체크하여 원하는 재고를 주문할 수 없을 경우 SOLD OUT 처리를 한다. **/
             if(getProduct.getStock() == 0 || getProduct.getStock() < orderList.get(key)) {
-                throw new IllegalArgumentException("SOLD OUT");
+                throw new SoldOutException();
             }
             /** 상품명 - 갯수 **/
             String productDetail = getProduct.getProductName() + " - " + orderList.get(key)+"개";
@@ -51,7 +52,7 @@ public class ProductServiceImpl implements ProductService{
             /** 재고 차감 **/
             /** 키트인 경우에만 차감한다. **/
             if(getProduct.getCategory().equals(Set.of(ProductEnum.categoryKit))) {
-                getProduct.setStock(getProduct.getStock()-orderList.get(key));
+                getProduct.stockUpdate(orderList.get(key));
             }
             productRepository.save(getProduct);
 

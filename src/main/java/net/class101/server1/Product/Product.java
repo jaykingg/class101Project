@@ -3,13 +3,13 @@ package net.class101.server1.Product;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.util.Set;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
 @Entity(name = "Product")
 public class Product {
 
@@ -22,7 +22,13 @@ public class Product {
 
     private String productName;
 
+    @Min(1)
     private Integer price;
 
+    @Min(0)
     private Integer stock;
+
+    public void stockUpdate(Integer discountStock) {
+        this.stock = this.stock - discountStock;
+    }
 }
